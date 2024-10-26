@@ -1,0 +1,6 @@
+FROM php:5.6-apache
+COPY ./ /var/www/html
+RUN chmod -R 755 /var/www/html
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install mysqli
+CMD ["apache2ctl", "-D", "FOREGROUND"]
